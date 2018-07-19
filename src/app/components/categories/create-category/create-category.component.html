@@ -1,0 +1,91 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title" id="horz-layout-colored-controls">Create New Category</h4>
+                <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                <div class="heading-elements">
+                    <ul class="list-inline mb-0">
+                        <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                        <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                        <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                        <li><a data-action="close"><i class="ft-x"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-content collpase show">
+                <div class="card-body">
+
+                    <form class="form form-horizontal" (submit)="addCategory()">
+                        <div class="form-body">
+                            <div class="form-group row">
+                                <label class="col-md-2 label-control" for="userinput1">
+                                    Name In Arabic
+                                </label>
+                                <div class="col-md-10">
+                                    <input type="text" id="userinput1"
+                                           class="form-control border-primary"
+                                           placeholder="Name In Arabic"
+                                           name="name_ar"
+                                           [(ngModel)]="name_ar">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-2 label-control" for="name_en">
+                                    Name In English
+                                </label>
+                                <div class="col-md-10">
+                                    <input type="text" id="name_en"
+                                           class="form-control border-primary"
+                                           placeholder="Name In English"
+                                           name="name_en"
+                                           [(ngModel)]="name_en">
+                                </div>
+
+
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-2 label-control"
+                                       for="description_ar">Description Arabic
+                                </label>
+                                <div class="col-md-10">
+                                    <input type="text" id="description_ar"
+                                           class="form-control border-primary"
+                                           placeholder="Description Arabic"
+                                           name="description_ar"
+                                           [(ngModel)]="description_ar">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+
+                                <label class="col-md-2 label-control" for="description_en">
+                                    Description English
+                                </label>
+                                <div class="col-md-10">
+                                    <input type="text" id="description_en"
+                                           class="form-control border-primary"
+                                           placeholder="Description English"
+                                           name="description_en"
+                                           [(ngModel)]="description_en">
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="form-actions right">
+                            <button type="button" routerLink="/category" class="btn btn-warning mr-1">
+                                <i class="ft-x"></i>
+                                Cancel
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="la la-check-square-o"></i>
+                                Save
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
