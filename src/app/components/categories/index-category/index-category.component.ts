@@ -48,8 +48,9 @@ export class IndexCategoryComponent implements OnInit {
         const index = this.categories.indexOf(category);
         this.categories.splice(index, 1);
         this.api.deleteCategory(category.id).subscribe(data => {
+                // console.log(data);
                 if (data.status_code === 200) {
-                    this.alertify.success('Category Deleted Successfully');
+                    alertify.success('Category Deleted Successfully');
                 } else {
                     alertify.error('Error');
                 }

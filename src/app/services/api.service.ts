@@ -10,7 +10,7 @@ const httpOptions = {
 @Injectable()
 export class ApiService {
 
-    private _url = 'http://localhost/cnepho_sarl_cms/public/api/category';
+    private _url = 'http://localhost/cnephoLaravel/public/api/category';
     public pageTitle: string;
 
     constructor(private http: HttpClient) {

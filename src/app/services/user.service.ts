@@ -9,13 +9,28 @@ import {HttpParams} from '@angular/common/http';
     providedIn: 'root'
 })
 export class UserService {
-
-    constructor(private http: HttpClient) {
-    }
+    visible: boolean;
 
     private oauthUrl = 'http://server.techalin.com/oauth/token';
     private usersUrl = 'http://server.techalin.com/api/users';
-    private _login_url = `http://127.0.0.1:8000/api/auth/login`;
+    private _login_url = `http://localhost/cnephoLaravel/public/api/auth/login`;
+
+    constructor(private http: HttpClient) {
+        this.visible = true;
+    }
+
+    hide() {
+        this.visible = false;
+    }
+
+    show() {
+        this.visible = true;
+    }
+
+    toggle() {
+        this.visible = !this.visible;
+    }
+
 
     loginAccessToken(email, password, remember_me) {
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
@@ -39,7 +54,6 @@ export class UserService {
         let params = new HttpParams().set('param1', value1); // create params object
         params = params.append('param2', value2); // add a new param, creating a new object
         return this.http.post<any[]>(this._login_url, {headers: headers, params: params});
-
     }
 
 

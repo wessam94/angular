@@ -1,9 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {LoginComponent} from '../../login/login.component';
-import {UpdateCategoryComponent} from '../categories/update-category/update-category.component';
-import {Routes} from '@angular/router';
-import {IndexCategoryComponent} from '../categories/index-category/index-category.component';
-import {CreateCategoryComponent} from '../categories/create-category/create-category.component';
+
+import {UserService} from '../../services/user.service';
 
 @Component({
     selector: 'app-sidebar',
@@ -14,7 +11,7 @@ export class SidebarComponent implements OnInit {
 
     links = [];
 
-    constructor() {
+    constructor(public userService: UserService) {
         this.links = [
             {link: 'article', icon: 'home', title: 'Article'},
             {link: 'category', icon: 'home', title: 'Category'},
@@ -22,6 +19,8 @@ export class SidebarComponent implements OnInit {
             {link: 'product', icon: 'home', title: 'Product'},
             {link: 'role', icon: 'home', title: 'Role'}
         ];
+
+
     }
 
     ngOnInit() {

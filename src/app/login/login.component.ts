@@ -14,8 +14,11 @@ export class LoginComponent implements OnInit {
         password: null,
         remember_me: false
     };
+    login = true;
 
-    constructor(private userService: UserService, private router: Router) {
+    constructor(public userService: UserService, private router: Router) {
+        this.userService.hide();
+        console.log(this.userService.visible);
     }
 
     ngOnInit() {
@@ -27,12 +30,14 @@ export class LoginComponent implements OnInit {
     }
 
     onSubmit() {
+
         this.userService.loginAccessToken(this.form.email, this.form.password, this.form.remember_me).subscribe(data => {
                 console.log(data.message);
                 if (data.status_code === 200) {
                     alertify.success('Login Successfully');
-                    this.router.navigate(['/category']);
                     localStorage.setItem('token', 'token');
+                    this.router.navigate(['/category']);
+                    this.userService.show();
                 }
                 if (data.status_code === 400) {
                     for (const entry of data.message) {

@@ -15,11 +15,8 @@ export class CreateCategoryComponent implements OnInit {
     name_en: string;
     description_ar: string;
     description_en: string;
-    private alertify: any;
 
     constructor(public api: ApiService, private router: Router) {
-        console.log('rrrrrrrrrrrr', this.api.getPageTitle());
-
     }
 
     ngOnInit() {
@@ -40,11 +37,11 @@ export class CreateCategoryComponent implements OnInit {
                     this.name_en = '';
                     this.description_ar = '';
                     this.description_en = '';
-                    this.alertify.success('Category Saved Successfully');
+                    alertify.success('Category Saved Successfully');
                     this.router.navigate(['/category']);
                 } else {
                     for (const entry of data.meta) {
-                        this.alertify.error(entry);
+                        alertify.error(entry);
                     }
                 }
             }

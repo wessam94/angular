@@ -19,6 +19,37 @@
                     <form class="form form-horizontal" (submit)="addCategory()">
                         <div class="form-body">
                             <div class="form-group row">
+                                <label class="col-md-2 label-control" for="name_en">
+                                    Name In English
+                                </label>
+                                <div class="col-md-10">
+                                    <input type="text" id="name_en"
+                                           class="form-control border-primary"
+                                           placeholder="Name In English"
+                                           name="name_en"
+                                           required="required"
+                                           [(ngModel)]="name_en">
+                                </div>
+
+
+                            </div>
+                            <div class="form-group row">
+
+                                <label class="col-md-2 label-control" for="description_en">
+                                    Description English
+                                </label>
+                                <div class="col-md-10">
+                                    <textarea type="text" id="description_en"
+                                              class="form-control border-primary"
+                                              placeholder="Description English"
+                                              name="description_en"
+                                              required="required"
+                                              [(ngModel)]="description_en"></textarea>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
                                 <label class="col-md-2 label-control" for="userinput1">
                                     Name In Arabic
                                 </label>
@@ -30,44 +61,18 @@
                                            [(ngModel)]="name_ar">
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label class="col-md-2 label-control" for="name_en">
-                                    Name In English
-                                </label>
-                                <div class="col-md-10">
-                                    <input type="text" id="name_en"
-                                           class="form-control border-primary"
-                                           placeholder="Name In English"
-                                           name="name_en"
-                                           [(ngModel)]="name_en">
-                                </div>
 
-
-                            </div>
                             <div class="form-group row">
                                 <label class="col-md-2 label-control"
                                        for="description_ar">Description Arabic
                                 </label>
                                 <div class="col-md-10">
-                                    <input type="text" id="description_ar"
-                                           class="form-control border-primary"
-                                           placeholder="Description Arabic"
-                                           name="description_ar"
-                                           [(ngModel)]="description_ar">
-                                </div>
-                            </div>
-                            <div class="form-group row">
+                                    <textarea type="text" id="description_ar"
+                                              class="form-control border-primary"
+                                              placeholder="Description Arabic"
+                                              name="description_ar"
 
-                                <label class="col-md-2 label-control" for="description_en">
-                                    Description English
-                                </label>
-                                <div class="col-md-10">
-                                    <input type="text" id="description_en"
-                                           class="form-control border-primary"
-                                           placeholder="Description English"
-                                           name="description_en"
-                                           [(ngModel)]="description_en">
-
+                                              [(ngModel)]="description_ar"></textarea>
                                 </div>
                             </div>
 
