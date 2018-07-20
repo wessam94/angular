@@ -11,10 +11,10 @@ import {Router} from '@angular/router';
 export class CreateCategoryComponent implements OnInit {
 
     id: number;
-    name_ar: string;
-    name_en: string;
-    description_ar: string;
-    description_en: string;
+    title_ar: string;
+    title_en: string;
+    text_ar: string;
+    text_en: string;
 
     constructor(public api: ApiService, private router: Router) {
     }
@@ -22,25 +22,25 @@ export class CreateCategoryComponent implements OnInit {
     ngOnInit() {
     }
 
-    addCategory() {
+    addArticle() {
 
-        const category = {
-            name_ar: this.name_ar,
-            name_en: this.name_en,
-            description_ar: this.description_ar,
-            description_en: this.description_en,
+        const article = {
+            title_ar: this.title_ar,
+            title_en: this.title_en,
+            text_ar: this.text_ar,
+            text_en: this.text_en,
         };
-        this.api.storeCategory(category).subscribe(
+        this.api.storeArticle(article).subscribe(
             data => {
                 if (data.status_code === 200) {
-                    this.name_ar = '';
-                    this.name_en = '';
-                    this.description_ar = '';
-                    this.description_en = '';
-                    alertify.success('Category Saved Successfully');
-                    this.router.navigate(['/category']);
+                    this.title_ar = '';
+                    this.title_en = '';
+                    this.text_ar = '';
+                    this.text_en = '';
+                    alertify.success('Article Saved Successfully');
+                    this.router.navigate(['/article']);
                 } else {
-                    for (const entry of data.meta) {
+                    for (const entry of data.message) {
                         alertify.error(entry);
                     }
                 }

@@ -6,4 +6,6 @@
 .ng-valid:not(form) {
     border-left: 5px solid green !important;
 }
-
+.dataTables_empty{
+    display: none;
+}
