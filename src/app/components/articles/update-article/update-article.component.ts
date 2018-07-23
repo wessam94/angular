@@ -10,6 +10,7 @@ export class UpdateArticleComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

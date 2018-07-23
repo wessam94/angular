@@ -27,12 +27,12 @@ import {ArticleService} from './services/article.service';
 const routes: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
     {path: 'login', component: LoginComponent},
-    {path: 'category', component: IndexCategoryComponent, canActivate: [ControlService]},
-    {path: 'create_category', component: CreateCategoryComponent},
-    {path: 'update_category/:id', component: UpdateCategoryComponent},
-    {path: 'article', component: IndexArticleComponent, canActivate: [ControlService]},
-    {path: 'create_article', component: CreateArticleComponent},
-    {path: 'update_article/:id', component: UpdateArticleComponent},
+    {path: 'category', component: IndexCategoryComponent ,canActivate: [ControlService]},
+    {path: 'create_category', component: CreateCategoryComponent ,canActivate: [ControlService]},
+    {path: 'update_category/:id', component: UpdateCategoryComponent ,canActivate: [ControlService]},
+    {path: 'article', component: IndexArticleComponent},
+    {path: 'create_article', component: CreateArticleComponent ,canActivate: [ControlService]},
+    {path: 'update_article/:id', component: UpdateArticleComponent },
 ];
 
 @NgModule({

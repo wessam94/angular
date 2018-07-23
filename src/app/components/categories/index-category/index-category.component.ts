@@ -37,7 +37,7 @@ export class IndexCategoryComponent implements OnInit {
     showCategory() {
         this.api.getAllCategory().subscribe((data: any) => {
                 if (data.status_code === 200) {
-                    this.categories = data.data;
+                    this.categories = data.meta;
                 } else {
                 }
             }
