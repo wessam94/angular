@@ -32,8 +32,9 @@ export class IndexArticleComponent implements OnInit {
 
     showArticles() {
         this.articleService.getAllArticles().subscribe((data: any) => {
+
                 if (data.status_code === 200) {
-                    this.articles = data.data;
+                    this.articles = data.data.data;
                 } else {
                     this.status_code = data.status_code;
                 }

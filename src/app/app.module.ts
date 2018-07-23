@@ -56,18 +56,17 @@ const routes: Routes = [
         HttpClientModule,
         FormsModule,
         RouterModule.forRoot(routes),
-
-
     ],
     providers: [
         ApiService,
         Title,
         ControlService,
         UserService,
-        ArticleService
-
+        ArticleService,
     ],
     bootstrap: [AppComponent]
 })
 export class AppModule {
+    // uplad file
+
 }

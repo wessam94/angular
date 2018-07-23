@@ -42,7 +42,7 @@ export class ApiService {
         const url = `${this._url}/${category.id}`;
         return this.http.patch<Category>(url, category, httpOptions).pipe();
     }
-    
+
 
     deleteCategory(id: number): Observable<{}> {
         const url = `${this._url}/${id}`;
@@ -52,7 +52,6 @@ export class ApiService {
 
 export interface Category {
     meta: any;
-    status_code: number;
     id: number;
     name_ar: string;
     name_en: string;

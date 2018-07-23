@@ -24,9 +24,6 @@ export class IndexCategoryComponent implements OnInit {
 
 
     constructor(public api: ApiService) {
-        this.api.setPageTitle('aaaaaaaaaaaaaaa');
-
-
     }
 
     ngOnInit() {
@@ -36,8 +33,9 @@ export class IndexCategoryComponent implements OnInit {
 
     showCategory() {
         this.api.getAllCategory().subscribe((data: any) => {
+                console.log(data);
                 if (data.status_code === 200) {
-                    this.categories = data.data;
+                    this.categories = data.data.data;
                 } else {
                 }
             }

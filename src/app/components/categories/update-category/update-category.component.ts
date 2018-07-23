@@ -14,6 +14,7 @@ export class UpdateCategoryComponent implements OnInit {
     name_en: string;
     description_ar: string;
     description_en: string;
+    image: string;
 
     category: Category;
     status_code: any;
@@ -30,14 +31,14 @@ export class UpdateCategoryComponent implements OnInit {
     editCategory() {
         const id = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
         this.api.editCategory(id).subscribe((data: any) => {
-                console.log(data.meta);
+                console.log(data.data);
                 if (data.status_code === 200) {
-                    this.category = data.meta;
-                    this.name_ar = data.meta.name_ar;
-                    this.id = data.meta.id;
-                    this.name_en = data.meta.name_en;
-                    this.description_ar = data.meta.description_ar;
-                    this.description_en = data.meta.description_en;
+                    this.category = data.data;
+                    this.name_ar = data.data.name_ar;
+                    this.id = data.data.id;
+                    this.name_en = data.data.name_en;
+                    this.description_ar = data.data.description_ar;
+                    this.description_en = data.data.description_en;
                 } else {
                     this.status_code = data.status_code;
                 }
@@ -70,5 +71,17 @@ export class UpdateCategoryComponent implements OnInit {
                 }
             }
         );
+    }
+
+    onUploadFinished(file: FileHolder) {
+        this.image = file.file.name;
+    }
+
+    onRemoved(file: FileHolder) {
+        // console.log(file);
+    }
+
+    onUploadStateChanged(state: boolean) {
+        // console.log(state);
     }
 }
