@@ -37,7 +37,6 @@ export class UserService {
         headers = headers.append('Accept', 'application/json');
         // let params = new HttpParams().set('email', email);
         // params = params.append('password', password);
-        // params = params.append('remember_me', remember_me);
 
         return this.http.post<any[]>(this._login_url, {
             headers: headers, params: JSON.stringify({

@@ -24,9 +24,6 @@ export class IndexCategoryComponent implements OnInit {
 
 
     constructor(public api: ApiService) {
-        this.api.setPageTitle('aaaaaaaaaaaaaaa');
-
-
     }
 
     ngOnInit() {

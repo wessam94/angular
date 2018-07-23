@@ -32,6 +32,7 @@ export class IndexArticleComponent implements OnInit {
 
     showArticles() {
         this.articleService.getAllArticles().subscribe((data: any) => {
+
                 if (data.status_code === 200) {
                     this.articles = data.meta;
                 } else {
