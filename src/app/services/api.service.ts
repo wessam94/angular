@@ -42,10 +42,7 @@ export class ApiService {
         const url = `${this._url}/${category.id}`;
         return this.http.patch<Category>(url, category, httpOptions).pipe();
     }
-
-    deleteCategory1(category): Observable<Category> {
-        return this.http.delete<Category>(this._url, category, httpOptions).pipe();
-    }
+    
 
     deleteCategory(id: number): Observable<{}> {
         const url = `${this._url}/${id}`;

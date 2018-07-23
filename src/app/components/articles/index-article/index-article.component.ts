@@ -31,9 +31,9 @@ export class IndexArticleComponent implements OnInit {
     }
 
     showArticles() {
-        this.articleService.getAllArticles().subscribe(data => {
+        this.articleService.getAllArticles().subscribe((data: any) => {
                 if (data.status_code === 200) {
-                    this.articles = data.meta;
+                    this.articles = data.data;
                 } else {
                     this.status_code = data.status_code;
                 }
@@ -44,12 +44,11 @@ export class IndexArticleComponent implements OnInit {
     deleteArticle(article) {
         const index = this.articles.indexOf(article);
         this.articles.splice(index, 1);
-        this.articleService.deleteArticle(article.id).subscribe(data => {
-                // console.log(data);
+        this.articleService.deleteArticle(article.id).subscribe((data: any) => {
                 if (data.status_code === 200) {
-                    alertify.success('Article Deleted Successfully');
+                    // alertify.success('Article Deleted Successfully');
                 } else {
-                    alertify.error('Error');
+                    // alertify.error('Error');
                 }
             }
         );

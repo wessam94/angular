@@ -14,7 +14,7 @@ export class ControlService {
         if (token) {
             return true;
         } else {
-            this.router.navigate('/login');
+            this.router.navigateByUrl('/login');
             return false;
         }
     }

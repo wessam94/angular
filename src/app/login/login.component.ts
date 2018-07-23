@@ -31,21 +31,20 @@ export class LoginComponent implements OnInit {
 
     onSubmit() {
 
-        this.userService.loginAccessToken(this.form.email, this.form.password, this.form.remember_me).subscribe(data => {
-                console.log(data.message);
+        this.userService.loginAccessToken(this.form.email, this.form.password, this.form.remember_me).subscribe((data: any) => {
                 if (data.status_code === 200) {
-                    alertify.success('Login Successfully');
+                    // alertify.success('Login Successfully');
                     localStorage.setItem('token', 'token');
                     this.router.navigate(['/category']);
                     this.userService.show();
                 }
                 if (data.status_code === 400) {
                     for (const entry of data.message) {
-                        alertify.error(entry);
+                        // alertify.error(entry);
                     }
                 }
                 if (data.status_code === 401) {
-                    alertify.error(data.message);
+                    // alertify.error(data.message);
                 }
 
             }

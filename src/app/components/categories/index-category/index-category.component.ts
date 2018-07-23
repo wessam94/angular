@@ -1,6 +1,7 @@
 import {Component, Input, Output, OnInit} from '@angular/core';
 import {ApiService, Category} from '../../../services/api.service';
 import {EventEmitter} from '@angular/core';
+import {Data} from '../../../data';
 
 @Component({
     selector: 'app-index-category',
@@ -11,21 +12,21 @@ export class IndexCategoryComponent implements OnInit {
 
 
     public categories = [];
-    public status_code = '';
     showForm: boolean;
     public category: Category;
-
+    status_code: any;
 
     id: number;
     name_ar: string;
     name_en: string;
     description_ar: string;
     description_en: string;
-    private alertify: any;
 
 
     constructor(public api: ApiService) {
         this.api.setPageTitle('aaaaaaaaaaaaaaa');
+
+
     }
 
     ngOnInit() {
@@ -34,11 +35,10 @@ export class IndexCategoryComponent implements OnInit {
     }
 
     showCategory() {
-        this.api.getAllCategory().subscribe(data => {
+        this.api.getAllCategory().subscribe((data: any) => {
                 if (data.status_code === 200) {
-                    this.categories = data.meta;
+                    this.categories = data.data;
                 } else {
-                    this.status_code = data.status_code;
                 }
             }
         );
@@ -47,12 +47,12 @@ export class IndexCategoryComponent implements OnInit {
     deleteCategory(category) {
         const index = this.categories.indexOf(category);
         this.categories.splice(index, 1);
-        this.api.deleteCategory(category.id).subscribe(data => {
+        this.api.deleteCategory(category.id).subscribe((data: any) => {
                 // console.log(data);
                 if (data.status_code === 200) {
-                    alertify.success('Category Deleted Successfully');
+                    // alertify.success('Category Deleted Successfully');
                 } else {
-                    alertify.error('Error');
+                    // alertify.error('Error');
                 }
             }
         );

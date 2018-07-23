@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiService} from '../../../services/api.service';
 import {Router} from '@angular/router';
+import {Data} from '../../../data';
 
 @Component({
     selector: 'app-create-category',
@@ -24,24 +25,25 @@ export class CreateCategoryComponent implements OnInit {
 
     addArticle() {
 
-        const article = {
+        const category = {
             title_ar: this.title_ar,
             title_en: this.title_en,
             text_ar: this.text_ar,
             text_en: this.text_en,
         };
-        this.api.storeArticle(article).subscribe(
-            data => {
+        this.api.storeCategory(category).subscribe(
+            (data: any) => {
+
                 if (data.status_code === 200) {
                     this.title_ar = '';
                     this.title_en = '';
                     this.text_ar = '';
                     this.text_en = '';
-                    alertify.success('Article Saved Successfully');
+                    // alertify.success('Article Saved Successfully');
                     this.router.navigate(['/article']);
                 } else {
                     for (const entry of data.message) {
-                        alertify.error(entry);
+                        // alertify.error(entry);
                     }
                 }
             }

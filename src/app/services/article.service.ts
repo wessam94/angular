@@ -6,7 +6,7 @@ const httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 
-@Injectable({})
+@Injectable()
 
 export class ArticleService {
 
@@ -34,9 +34,6 @@ export class ArticleService {
         return this.http.patch<Article>(url, article, httpOptions).pipe();
     }
 
-    deleteArticle1(article): Observable<Article> {
-        return this.http.delete<Article>(this._url, article, httpOptions).pipe();
-    }
 
     deleteArticle(id: number): Observable<{}> {
         const url = `${this._url}/${id}`;
@@ -46,11 +43,10 @@ export class ArticleService {
 
 export interface Article {
     meta: any;
-    status_code: number;
     id: number;
     title_ar: string;
     title_en: string;
     text_ar: string;
     text_en: string;
-    // status_code: any;
+    status_code: any;
 }

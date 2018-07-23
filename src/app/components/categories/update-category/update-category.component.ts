@@ -16,6 +16,7 @@ export class UpdateCategoryComponent implements OnInit {
     description_en: string;
 
     category: Category;
+    status_code: any;
     @Output() messageEvent = new EventEmitter<string>();
 
     constructor(private api: ApiService, private router: Router) {
@@ -28,7 +29,7 @@ export class UpdateCategoryComponent implements OnInit {
 
     editCategory() {
         const id = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
-        this.api.editCategory(id).subscribe(data => {
+        this.api.editCategory(id).subscribe((data: any) => {
                 console.log(data.meta);
                 if (data.status_code === 200) {
                     this.category = data.meta;
@@ -53,18 +54,18 @@ export class UpdateCategoryComponent implements OnInit {
             id: this.id,
         };
         this.api.updateCategory(category).subscribe(
-            data => {
+            (data: any) => {
                 if (data.status_code === 200) {
                     this.name_ar = '';
                     this.name_en = '';
                     this.description_ar = '';
                     this.description_en = '';
-                    alertify.success('Category Updated Successfully');
+                    // alertify.success('Category Updated Successfully');
                     this.router.navigate(['/category']);
 
                 } else {
                     for (const entry of data.meta) {
-                        alertify.error(entry);
+                        // alertify.error(entry);
                     }
                 }
             }
