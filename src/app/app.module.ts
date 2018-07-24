@@ -2,6 +2,7 @@ import {BrowserModule, Title} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 
+
 import {HttpClientModule} from '@angular/common/http';
 
 import {AppComponent} from './app.component';
@@ -23,16 +24,47 @@ import {CreateArticleComponent} from './components/articles/create-article/creat
 import {IndexArticleComponent} from './components/articles/index-article/index-article.component';
 import {UpdateArticleComponent} from './components/articles/update-article/update-article.component';
 import {ArticleService} from './services/article.service';
+import { CreateUserComponent } from './components/user/create-user/create-user.component';
+import { UpdateUserComponent } from './components/user/update-user/update-user.component';
+import { ViewUserComponent } from './components/user/view-user/view-user.component';
+import { CreateProductComponent } from './components/product/create-product/create-product.component';
+import { UpdateProductComponent } from './components/product/update-product/update-product.component';
+import { ViewProductComponent } from './components/product/view-product/view-product.component';
+
+import {ProductService} from './services/product.service';
 
 const routes: Routes = [
+
+
+    {
+        path: 'category',
+        component: IndexCategoryComponent,
+        data: {
+            breadcrumb: 'forms'
+        },
+        children: [
+            {
+                path: 'product',
+                component: ViewProductComponent,
+                data: {
+                    breadcrumb: 'details'
+                },
+            },
+        ]
+    },
+
+
     {path: '', redirectTo: 'home', pathMatch: 'full'},
     {path: 'login', component: LoginComponent},
-    {path: 'category', component: IndexCategoryComponent ,canActivate: [ControlService]},
+    // {path: 'category', component: IndexCategoryComponent},
     {path: 'create_category', component: CreateCategoryComponent ,canActivate: [ControlService]},
     {path: 'update_category/:id', component: UpdateCategoryComponent ,canActivate: [ControlService]},
     {path: 'article', component: IndexArticleComponent},
     {path: 'create_article', component: CreateArticleComponent ,canActivate: [ControlService]},
     {path: 'update_article/:id', component: UpdateArticleComponent },
+
+    //Products section
+    // {path: 'product', component: ViewProductComponent},
 ];
 
 @NgModule({
@@ -48,7 +80,13 @@ const routes: Routes = [
         BreadcrumbComponent,
         CreateArticleComponent,
         IndexArticleComponent,
-        UpdateArticleComponent
+        UpdateArticleComponent,
+        CreateUserComponent,
+        UpdateUserComponent,
+        ViewUserComponent,
+        CreateProductComponent,
+        UpdateProductComponent,
+        ViewProductComponent
     ],
     imports: [
         BrowserModule,
@@ -63,6 +101,7 @@ const routes: Routes = [
         ControlService,
         UserService,
         ArticleService,
+        ProductService
     ],
     bootstrap: [AppComponent]
 })

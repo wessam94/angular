@@ -73,15 +73,15 @@ export class UpdateCategoryComponent implements OnInit {
         );
     }
 
-    onUploadFinished(file: FileHolder) {
-        this.image = file.file.name;
-    }
-
-    onRemoved(file: FileHolder) {
-        // console.log(file);
-    }
-
-    onUploadStateChanged(state: boolean) {
-        // console.log(state);
-    }
+    // onUploadFinished(file: FileHolder) {
+    //     this.image = file.file.name;
+    // }
+    //
+    // onRemoved(file: FileHolder) {
+    //     // console.log(file);
+    // }
+    //
+    // onUploadStateChanged(state: boolean) {
+    //     // console.log(state);
+    // }
 }

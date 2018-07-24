@@ -4,7 +4,7 @@
         <div class="row breadcrumbs-top d-inline-block">
             <div class="breadcrumb-wrapper col-12">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">{{page_title}}</a>
+                    <li class="breadcrumb-item"><a href="index.html">{{home_title}}</a>
                     </li>
                     <li class="breadcrumb-item"><a href="#">page_title</a>
                     </li>
@@ -30,3 +30,13 @@
         </div>
     </div>
 </div>
+
+
+<ol class="breadcrumb">
+    <li *ngFor="let breadcrumb of breadcrumbs$ | async"
+        class="breadcrumb-item">
+        <a [routerLink]="[breadcrumb.url, breadcrumb.params]">
+            {{ breadcrumb.label }}
+        </a>
+    </li>
+</ol>

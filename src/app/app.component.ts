@@ -10,7 +10,7 @@ import {UserService} from './services/user.service';
 })
 export class AppComponent {
     public page_title: any;
-
+    
     constructor(public api: ApiService, public userService: UserService) {
         this.page_title = this.api.getPageTitle();
         this.userService.show();
