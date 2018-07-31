@@ -45,6 +45,7 @@ export class UpdateProductComponent implements OnInit {
           } else {
             alert("response is "+data.status_code)
           }
+
         }
     );
   }
