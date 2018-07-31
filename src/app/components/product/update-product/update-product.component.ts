@@ -51,6 +51,8 @@ export class UpdateProductComponent implements OnInit {
   }
 
 
+
+
   editProduct() {
     const product = {
       product_id: this.id,
