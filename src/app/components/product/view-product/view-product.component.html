@@ -1,6 +1,6 @@
 <div class="row">
 
-  <a class="btn btn-success round btn-glow"
+  <a class="btn btn-success round btn-glow" routerLink="/create_product"
      style="margin-bottom: 30px;margin-left: 15px">
     Create New Product
   </a>
@@ -52,9 +52,10 @@
                 <td>{{product.created_at}}</td>
                 <td>{{product.updated_at}}</td>
                 <td>
-                  <button style="margin: 3px" class="btn btn-danger">
+                  <button style="margin: 3px" class="btn btn-danger" (click)="deleteProduct(product)">
                     <i class="icon-trash"></i></button>
-                  <button style="margin: 3px" class="btn btn-success">
+                  <button style="margin: 3px" class="btn btn-success"
+                          routerLink="/update_product/{{product.id}}">
                     <i class="ft-edit"></i></button>
                 </td>
               </tr>

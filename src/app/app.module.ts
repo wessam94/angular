@@ -36,27 +36,27 @@ import {ProductService} from './services/product.service';
 const routes: Routes = [
 
 
-    {
-        path: 'category',
-        component: IndexCategoryComponent,
-        data: {
-            breadcrumb: 'forms'
-        },
-        children: [
-            {
-                path: 'product',
-                component: ViewProductComponent,
-                data: {
-                    breadcrumb: 'details'
-                },
-            },
-        ]
-    },
+    // {
+    //     path: 'category',
+    //     component: IndexCategoryComponent,
+    //     data: {
+    //         breadcrumb: 'forms'
+    //     },
+    //     children: [
+    //         {
+    //             path: 'product',
+    //             component: ViewProductComponent,
+    //             data: {
+    //                 breadcrumb: 'details'
+    //             },
+    //         },
+    //     ]
+    // },
 
 
     {path: '', redirectTo: 'home', pathMatch: 'full'},
     {path: 'login', component: LoginComponent},
-    // {path: 'category', component: IndexCategoryComponent},
+    {path: 'category', component: IndexCategoryComponent},
     {path: 'create_category', component: CreateCategoryComponent ,canActivate: [ControlService]},
     {path: 'update_category/:id', component: UpdateCategoryComponent ,canActivate: [ControlService]},
     {path: 'article', component: IndexArticleComponent},
@@ -64,7 +64,10 @@ const routes: Routes = [
     {path: 'update_article/:id', component: UpdateArticleComponent },
 
     //Products section
-    // {path: 'product', component: ViewProductComponent},
+    {path: 'product', component: ViewProductComponent},
+    {path: 'create_product', component: CreateProductComponent},
+    {path: 'update_product/:id', component: UpdateProductComponent},
+
 ];
 
 @NgModule({

@@ -44,4 +44,18 @@ export class ViewProductComponent implements OnInit {
     );
   }
 
+  deleteProduct(product) {
+    const index = this.products.indexOf(product);
+    this.products.splice(index, 1);
+    this.api.deleteProduct(product.id).subscribe(
+        (data: ProductResponse) => {
+          if (data.status_code === 200) {
+            // alertify.success('Category Deleted Successfully');
+          } else {
+            // alertify.error('Error');
+          }
+        }
+    );
+  }
+
 }
