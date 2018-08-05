@@ -19,9 +19,9 @@ interface ProductObject {
 export class UpdateProductComponent implements OnInit {
 
   product: ProductObject;
-  private id: number;
-  private name: string;
-  private detail: string;
+  id: number;
+  name: string;
+  detail: string;
 
   constructor(private api: ProductService, private router: Router) { }
 
